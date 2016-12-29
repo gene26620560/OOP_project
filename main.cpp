@@ -1,4 +1,4 @@
-/* coding by yctseng */
+ï»¿/* coding by yctseng */
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -11,44 +11,44 @@ using namespace std;
 
 int main()
 {
-	BaseRestaurant* restaurant = new BaseRestaurant;   // «Å§i°ò©³Ãş§O ¨Ã°ÊºA·s¼Wrestaurantª«¥ó
-    int rest_id;        // Àx¦s¿é¤JÀ\ÆUªº½s¸¹
-    string account;     // Àx¦s¿é¤Jªº«È¤á¦WºÙ
-
-    // «eºó¥Îµü
+    BaseRestaurant* restaurant = new BaseRestaurant;   // å®£å‘ŠåŸºåº•é¡åˆ¥ ä¸¦å‹•æ…‹æ–°å¢restaurantç‰©ä»¶
+    int rest_id;        // å„²å­˜è¼¸å…¥é¤å»³çš„ç·¨è™Ÿ
+    string account;     // å„²å­˜è¼¸å…¥çš„å®¢æˆ¶åç¨±
+    
+    // å‰ç¶´ç”¨è©
     cout << "Welcome to HAHA restaurant" << endl;
     cout << "Please enter your account:";
     cin >> account;
     cout << "Hello! " << account << endl
          << "Please enter restaurant options:" << endl
          << "(1)Taipei (2)Taichung (3)Tainan (0)Quit" << endl;
-
-    // ¿é¤JÀ\ÆU½s¸¹(¿é¤J0µ²§ô)
+    
+    // è¼¸å…¥é¤å»³ç·¨è™Ÿ(è¼¸å…¥0çµæŸ)
     while(cin>>rest_id && rest_id!=0)
     {
-        system("cls");  //²M°£µe­±
+        system("cls");  //æ¸…é™¤ç•«é¢
 
-        // ®Ú¾Ú¿ï¾ÜªºÀ\ÆU½s¸¹¤À§O¹ïÀ³¤T­Ó­l¦ùÃş§O
+        // æ ¹æ“šé¸æ“‡çš„é¤å»³ç·¨è™Ÿåˆ†åˆ¥å°æ‡‰ä¸‰å€‹è¡ä¼¸é¡åˆ¥
         switch (rest_id)
         {
             case 1:
-			{
-            	Rest_Taipei Taipei;        // «Å§i¥x¥_À\ÆUªº­l¦ùÃş§O
-            	Taipei.setAccountFile(account);
+            {
+                Rest_Taipei Taipei;        // å®£å‘Šå°åŒ—é¤å»³çš„è¡ä¼¸é¡åˆ¥
+                Taipei.setAccountFile(account);
                 Taipei.menu();
                 break;
             }
             case 2:
             {
-            	Rest_Taichung Taichung;    // «Å§i¥x¤¤À\ÆUªº­l¦ùÃş§O
-            	Taichung.setAccountFile(account);
+                Rest_Taichung Taichung;    // å®£å‘Šå°ä¸­é¤å»³çš„è¡ä¼¸é¡åˆ¥
+                Taichung.setAccountFile(account);
                 Taichung.menu();
                 break;
             }
             case 3:
             {
-            	Rest_Tainan Tainan;        // «Å§i¥x«nÀ\ÆUªº­l¦ùÃş§O
-            	Tainan.setAccountFile(account);
+                Rest_Tainan Tainan;        // å®£å‘Šå°å—é¤å»³çš„è¡ä¼¸é¡åˆ¥
+                Tainan.setAccountFile(account);
                 Tainan.menu();
                 break;
             }
@@ -63,7 +63,6 @@ int main()
         }
     }
     delete restaurant;
-
+    
     return 0;
 }
-
