@@ -11,43 +11,43 @@ using namespace std;
 
 int main()
 {
-	BaseRestaurant* restaurant = new BaseRestaurant;   // å®£å‘ŠåŸºåº•é¡åˆ¥ ä¸¦å‹•æ…‹æ–°å¢restaurantç‰©ä»¶
-    int rest_id;        // å„²å­˜è¼¸å…¥é¤å»³çš„ç·¨è™Ÿ
-    string account;     // å„²å­˜è¼¸å…¥çš„å®¢æˆ¶åç¨±
-    
-    // å‰ç¶´ç”¨è©
+	BaseRestaurant* restaurant = new BaseRestaurant;   // «Å§i°ò©³Ãş§O ¨Ã°ÊºA·s¼Wrestaurantª«¥ó
+    int rest_id;        // Àx¦s¿é¤JÀ\ÆUªº½s¸¹
+    string account;     // Àx¦s¿é¤Jªº«È¤á¦WºÙ
+
+    // «eºó¥Îµü
     cout << "Welcome to HAHA restaurant" << endl;
     cout << "Please enter your account:";
     cin >> account;
     cout << "Hello! " << account << endl
          << "Please enter restaurant options:" << endl
          << "(1)Taipei (2)Taichung (3)Tainan (0)Quit" << endl;
-	
-    // è¼¸å…¥é¤å»³ç·¨è™Ÿ(è¼¸å…¥0çµæŸ)
+
+    // ¿é¤JÀ\ÆU½s¸¹(¿é¤J0µ²§ô)
     while(cin>>rest_id && rest_id!=0)
     {
-        system("cls");  //æ¸…é™¤ç•«é¢
+        system("cls");  //²M°£µe­±
 
-        // æ ¹æ“šé¸æ“‡çš„é¤å»³ç·¨è™Ÿåˆ†åˆ¥å°æ‡‰ä¸‰å€‹è¡ä¼¸é¡åˆ¥
+        // ®Ú¾Ú¿ï¾ÜªºÀ\ÆU½s¸¹¤À§O¹ïÀ³¤T­Ó­l¦ùÃş§O
         switch (rest_id)
         {
             case 1:
 			{
-            	Rest_Taipei Taipei;        // å®£å‘Šå°åŒ—é¤å»³çš„è¡ä¼¸é¡åˆ¥
+            	Rest_Taipei Taipei;        // «Å§i¥x¥_À\ÆUªº­l¦ùÃş§O
             	Taipei.setAccountFile(account);
                 Taipei.menu();
                 break;
             }
             case 2:
             {
-            	Rest_Taichung Taichung;    // å®£å‘Šå°ä¸­é¤å»³çš„è¡ä¼¸é¡åˆ¥
+            	Rest_Taichung Taichung;    // «Å§i¥x¤¤À\ÆUªº­l¦ùÃş§O
             	Taichung.setAccountFile(account);
                 Taichung.menu();
                 break;
             }
             case 3:
             {
-            	Rest_Tainan Tainan;        // å®£å‘Šå°å—é¤å»³çš„è¡ä¼¸é¡åˆ¥
+            	Rest_Tainan Tainan;        // «Å§i¥x«nÀ\ÆUªº­l¦ùÃş§O
             	Tainan.setAccountFile(account);
                 Tainan.menu();
                 break;
@@ -63,6 +63,7 @@ int main()
         }
     }
     delete restaurant;
-    
+
     return 0;
 }
+
