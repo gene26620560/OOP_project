@@ -1,9 +1,9 @@
-﻿/* coding by yctseng */
+﻿/* code by yctseng */
 #include <iostream>
 #include "Rest_Taichung.h"
 using namespace std;
 
-Rest_Taichung::Rest_Taichung()
+Rest_Taichung::Rest_Taichung(string account)
 {
     f_menu.open("menu_Taichung.txt", ios::in);
     if (!f_menu.is_open())
@@ -11,6 +11,7 @@ Rest_Taichung::Rest_Taichung()
         cout << "ERROR!";
         exit(1);
     }
+    f_order << "To " << account << "," << endl;
 }
 
 void Rest_Taichung::menu()
@@ -48,7 +49,7 @@ void Rest_Taichung::order()
     cout << endl << "Please enter the product number with the end of \"0\":" << endl;
     int product_id;
     int total = 0;
-    while(cin>>product_id && product_id!=0)
+    while(cin >> product_id && product_id!=0)
     {
         if(product_id<0 || product_id>6)
         {

@@ -1,4 +1,4 @@
-﻿/* coding by yctseng */
+﻿/* code by yctseng */
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -11,58 +11,50 @@ using namespace std;
 
 int main()
 {
-    BaseRestaurant* restaurant = new BaseRestaurant;   // 宣告基底類別 並動態新增restaurant物件
-    int rest_id;        // 儲存輸入餐廳的編號
-    string account;     // 儲存輸入的客戶名稱
-    
-    // 前綴用詞
     cout << "Welcome to HAHA restaurant" << endl;
     cout << "Please enter your account:";
+    
+    string account;     // 客戶名稱
     cin >> account;
+    
+    int rest_id;                    // 儲存輸入餐廳的編號
+    BaseRestaurant* city;           // 宣告基底類別的物件指標
+    Rest_Taipei Taipei(account);    // 宣告衍伸類別的物件 同時進行客戶名稱的檔案寫入
+    Rest_Taichung Taichung(account);
+    Rest_Tainan Tainan(account);
+    
     cout << "Hello! " << account << endl
          << "Please enter restaurant options:" << endl
          << "(1)Taipei (2)Taichung (3)Tainan (0)Quit" << endl;
-    
+	
     // 輸入餐廳編號(輸入0結束)
     while(cin>>rest_id && rest_id!=0)
     {
-        system("cls");  //清除畫面
-
-        // 根據選擇的餐廳編號分別對應三個衍伸類別
+        system("cls");
         switch (rest_id)
         {
             case 1:
-            {
-                Rest_Taipei Taipei;        // 宣告台北餐廳的衍伸類別
-                Taipei.setAccountFile(account);
-                Taipei.menu();
+                // 將繼承的物件透過指標傳給基底類別 以便稍後使用多型
+            	city = &Taipei;
                 break;
-            }
             case 2:
-            {
-                Rest_Taichung Taichung;    // 宣告台中餐廳的衍伸類別
-                Taichung.setAccountFile(account);
-                Taichung.menu();
+            	city = &Taichung;
                 break;
-            }
             case 3:
-            {
-                Rest_Tainan Tainan;        // 宣告台南餐廳的衍伸類別
-                Tainan.setAccountFile(account);
-                Tainan.menu();
+            	city = &Tainan;
                 break;
-            }
             default:
                 cout << "sorry, Please enter again..." << endl;
                 break;
         }
         if(rest_id==1 || rest_id==2 || rest_id==3)
         {
+            // 根據基底類別接收到的物件進行相對應的後續
+        	city -> menu();
             cout << "Please check your order in file. Thank for you custom." << endl;
             break;
         }
     }
-    delete restaurant;
-    
+    system("pause");
     return 0;
 }

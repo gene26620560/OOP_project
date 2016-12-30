@@ -1,9 +1,9 @@
-﻿/* coding by yctseng */
+﻿/* code by yctseng */
 #include <iostream>
 #include "Rest_Tainan.h"
 using namespace std;
 
-Rest_Tainan::Rest_Tainan()
+Rest_Tainan::Rest_Tainan(string account)
 {
     f_menu.open("menu_Tainan.txt", ios::in);
     if (!f_menu.is_open())
@@ -11,7 +11,7 @@ Rest_Tainan::Rest_Tainan()
         cout << "ERROR!";
         exit(1);
     }
-    
+    f_order << "To " << account << "," << endl;
 }
 
 void Rest_Tainan::menu()
@@ -49,7 +49,7 @@ void Rest_Tainan::order()
     cout << endl << "Please enter the product number with the end of \"0\":" << endl;
     int product_id;
     int total = 0;
-    while(cin>>product_id && product_id!=0)
+    while(cin >> product_id && product_id!=0)
     {
         if(product_id<0 || product_id>8)
         {
