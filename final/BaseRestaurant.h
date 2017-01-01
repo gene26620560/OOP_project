@@ -9,6 +9,10 @@ class BaseRestaurant
 public:
     BaseRestaurant();			// 關檔
     virtual void menu() = 0;	// menu為純虛擬函式 作為衍伸類別多型用途
+    void gotoxy(int, int);
+    void list(string);
+    void order(void);
+    void file(void);
     ~BaseRestaurant();			// 關檔
 protected:
     fstream f_menu;				// 讀取作為菜單的檔案
